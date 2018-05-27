@@ -31,37 +31,47 @@ loadJson("https://kea-alt-del.dk/customersupport/", function(data){
 
     data.forEach(function(customer){
         let clone = document.querySelector("#customers").content.cloneNode(true);
-        let name =  customer.first + " " + customer.middle + " " + customer.last; 
-
+        let name =  customer.first + " " + customer.last;
+        let time = customer.time.year + "/" + customer.time.month + "/" + customer.time.day + " " + customer.time.hour + ":" + customer.time.minute + ":" + customer.time.second;
+        let hslVal = `hsl(${customer.importance}, 75%, 75%)`;
     
         clone.querySelector(".name").textContent = name;
         clone.querySelector(".place").textContent = customer.place;
-       // clone.querySelector(".date").textContent = date;
+        clone.querySelector(".time").textContent = time;
         clone.querySelector("#message").textContent = customer.message;
         clone.querySelector("#full").textContent = customer.full;
         clone.querySelector("#full").style.display = "none";
 
-        clone.querySelector("button").addEventListener("click", function(e){
-            console.log(e.target)
-
-                //e.target.nextElementSibling.textContent = customer.full;
-                //e.target.nextElementSibling.classList.toggle("hide");
-        
+        clone.querySelector("#btn").addEventListener("click", function(e){
+            console.log(e.target)        
                 if (e.target.nextElementSibling.style.display === "none") {
                     e.target.nextElementSibling.style.display = "block";
                     e.target.textContent = "Read less";
                 } else {
                     e.target.nextElementSibling.style.display = "none";
-                    e.target.textContent = "Read more...";
-                    
+                    e.target.textContent = "Read more..."; 
                 }
             })
         
+        clone.querySelector("#remove").addEventListener("click", function(e){
+                console.log("remove btn",e.target.parentNode.parentNode);
+                e.target.parentNode.parentNode.remove();
+                })
         
         
 
-        clone.querySelector(".importance").textContent = customer.importance;
-        clone.querySelector(".importance").style.backgroundColor = `hsl(${customer.importance}, 100%, 50%)`;
+        //clone.querySelector(".importance").textContent = customer.importance;
+        clone.querySelector("#customerContainer").style.backgroundColor = `hsl(${customer.importance}, 100%, 92%)`;
+        clone.querySelector(".top").style.background = `linear-gradient(to bottom, hsla(${customer.importance}, 75%, 75%,1) 0%,hsla(206,70%,70%,0) 100%)`;
+
+
+        //background: linear-gradient(to bottom, hsla(212,67%,36%,1) 0%,hsla(206,70%,70%,0) 100%);
+        /*  clone.querySelector(".dome").style.backgroundColor = hslVal;
+        clone.querySelector(".bottom").style.backgroundColor = hslVal;
+        clone.querySelector("#full").style.backgroundColor = hslVal; */
+        
+        
+        
         
         // Show or Hide
        /*  let shortMsg = clone.querySelector(".message"),
@@ -89,11 +99,11 @@ loadJson("https://kea-alt-del.dk/customersupport/", function(data){
     
 });
 
-function hide(e){
+/* function hide(e){
     // e.target refers to the clicked <li> element
     // This is different than e.currentTarget which would refer to the parent <ul> in this context
     e.target.style.visibility = 'hidden';
-  }
+  } */
 
 /*  function toggleText(id) {
     let x = document.getElementById("btn");

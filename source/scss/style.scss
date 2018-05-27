@@ -1,0 +1,73 @@
+//to run in terminal: npm run my-sass -> not necessary when the scss file is "watched"
+$myFont: Helvetica, sans-serif;
+$myColor: #000;
+$bgcolor: #123456;
+$width: 100%;
+$value: 10px;
+$space: 20px;
+$padding: 5px;
+
+//import basic settings for html, body and p
+@import "preset";
+/*styles for body*/
+
+h2 {
+    width: $width*.9;
+    margin: 0 auto;
+    text-align: center;
+    padding: $padding;
+    
+}
+#recieve  {
+    padding: $padding;
+    width: $width*.9;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: $space;
+    button{  
+       background: none;
+        border: 1px solid $myColor;
+    }
+    #customers {
+        display: grid;
+        grid-column: 1/4;
+    }
+    #customerContainer{
+        background: whitesmoke;
+        border-radius: $padding;
+        
+        .top{
+            padding:$padding;
+            margin-bottom: $padding;
+            border-radius: $padding;
+            display: flex;
+            justify-content: space-between;
+            .name, button{
+                font-weight: bold;
+            }
+            button {
+                border: 2px solid $myColor;
+            }
+        }
+        .content {
+            margin: $padding;
+            #message{
+                font-size: 0.8em;
+            }
+            .bottom{
+                 margin-top: $padding;
+                display: flex;
+                justify-content: space-between;
+                font-weight: bold;
+                
+
+            }
+          }
+    
+        }
+  }
+
+ 
+
+  

@@ -1,0 +1,22 @@
+{
+  "name": "customersupport",
+  "version": "1.0.0",
+  "description": "Your task today is to build the visual interface for a customer support service.",
+  "main": "main.js",
+  "scripts": {
+    "my-sass": "node-sass source/scss/style.scss source/css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ceckang/customersupport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ceckang/customersupport/issues"
+  },
+  "homepage": "https://github.com/Ceckang/customersupport#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  }
+}
