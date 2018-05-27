@@ -39,7 +39,24 @@ loadJson("https://kea-alt-del.dk/customersupport/", function(data){
        // clone.querySelector(".date").textContent = date;
         clone.querySelector("#message").textContent = customer.message;
         clone.querySelector("#full").textContent = customer.full;
-        clone.querySelector("#full").style.display = "none"
+        clone.querySelector("#full").style.display = "none";
+
+        clone.querySelector("button").addEventListener("click", function(e){
+            console.log(e.target)
+
+                //e.target.nextElementSibling.textContent = customer.full;
+                //e.target.nextElementSibling.classList.toggle("hide");
+        
+                if (e.target.nextElementSibling.style.display === "none") {
+                    e.target.nextElementSibling.style.display = "block";
+                    e.target.textContent = "Read less";
+                } else {
+                    e.target.nextElementSibling.style.display = "none";
+                    e.target.textContent = "Read more...";
+                    
+                }
+            })
+        
         
         
 
@@ -66,23 +83,30 @@ loadJson("https://kea-alt-del.dk/customersupport/", function(data){
                 }
             } */
         
+            
         document.querySelector("#recieve").appendChild(clone);
     });
     
 });
 
+function hide(e){
+    // e.target refers to the clicked <li> element
+    // This is different than e.currentTarget which would refer to the parent <ul> in this context
+    e.target.style.visibility = 'hidden';
+  }
 
- function toggleText(id) {
-    let x = document.getElementById("full");
-    if (x.style.display === "none") {
-        x.style.display = "block";
+/*  function toggleText(id) {
+    let x = document.getElementById("btn");
+    console.log(x.nextElementSibling);
+    if (x.nextElementSibling.style.display === "none") {
+        x.nextElementSibling.style.display = "block";
         document.querySelector("button").textContent = "Read less";
     } else {
-        x.style.display = "none";
+        x.nextElementSibling.style.display = "none";
         document.querySelector("button").textContent = "Read more...";
         
     }
-} 
+}  */
  
 
 
